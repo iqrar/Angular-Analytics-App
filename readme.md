@@ -16,7 +16,7 @@ Use date pickers to filter the object by date range.
 Chart will show the cities and their prices. It depends
 upon the date filter.
 
-
+![alt text](screenshots/test.png)
 
 
 
