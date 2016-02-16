@@ -1,0 +1,56 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    font-weight: normal;
+}
+#header {
+    text-align: center;
+    padding-top: 10px;
+    background-color: #f33;
+    height: 100px;
+}
+#header h2 {
+    color: #fff;
+}
+#picker {
+    padding: 25px 0px;
+}
+.date-picker .form-control {
+    font-size: 16px;
+}
+.glyphicon {
+    font-size: 10px;
+}
+.custom-container {
+    border: 1px solid black;
+    border-radius: 2px;
+}
+.row-header {
+    border-bottom: 1px solid #000;
+    background-color: #EEE;
+    cursor: pointer;
+}
+.color-width {
+    height: 20px;
+    max-width: 100%;
+}
+#chart {
+    padding: 25px 0px;
+}
+/* small devices */
+
+@media (max-width: 768px) {
+    body {
+        font-size: 12px;
+    }
+    .xs-hide {
+        display: none;
+    }
+    .date-wrap {
+        word-wrap: break-word;
+    }
+    .date-picker .form-control {
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,85 @@
+<section id="home">
+    <!--Picker-->
+    <section id="picker">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Start Date</h4>
+                    <div class="input-group date-picker">
+                        <input type="text" class="form-control" ng-change = "newValue(dt1)" uib-datepicker-popup="{{format}}" ng-model="dt1" is-open="status1.opened" max-date="maxDate" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                        <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open1($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+                    </div>
+                </div>
+                <!--dt1-->
+               <div class="col-md-6">
+                    <h4>End Date</h4>
+                    <div class="input-group date-picker">
+                        <input type="text" class="form-control" ng-change = "newValue(dt2)" uib-datepicker-popup="{{format}}" ng-model="dt2" is-open="status2.opened" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                        <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open2($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </div>
+                </div>
+                <!--dt2-->
+              </div>
+            <!--container-->
+        </div>
+        <!--row-->
+    </section>
+    <!-- Data -->
+    <section id="grid-container">
+        <div class="container custom-container">
+            <div class="row row-header">
+                <h4 class="col-xs-2" ng-click="sort('city')"> city 
+                         <i class = "glyphicon glyphicon-chevron-down" ng-show = "reverse && value === 'city'"></i>
+                         <i class = "glyphicon glyphicon-chevron-up" ng-show= "!reverse && value === 'city'"></i>
+                </h4>
+                <h4 class="col-xs-2" ng-click="sort('start_date')">start <span class = "xs-hide">date</span>
+                         <i class = "glyphicon glyphicon-chevron-down" ng-show = "reverse && value === 'start_date'"></i>
+                         <i class = "glyphicon glyphicon-chevron-up" ng-show= "!reverse && value === 'start_date'"></i>
+                </h4>
+                <h4 class="col-xs-2" ng-click="sort('end_date')">end <span class = "xs-hide">date</span>
+                          <i class = "glyphicon glyphicon-chevron-down" ng-show = "reverse && value === 'end_date'"></i>
+                          <i class = "glyphicon glyphicon-chevron-up" ng-show= "!reverse && value === 'end_date'"></i>
+                </h4>
+                <h4 class="col-xs-2" ng-click="sort('price')">price
+                          <i class = "glyphicon glyphicon-chevron-down" ng-show = "reverse && value === 'price'"></i>
+                          <i class = "glyphicon glyphicon-chevron-up" ng-show= "!reverse && value === 'price'"></i>
+                </h4>
+                <h4 class="col-xs-2" ng-click="sort('status')">status
+                         <i class = "glyphicon glyphicon-chevron-down" ng-show = "reverse && value === 'status'"></i>
+                         <i class = "glyphicon glyphicon-chevron-up" ng-show= "!reverse && value === 'status'"></i>
+                </h4>
+                <h4 class="col-xs-2" ng-click="sort('color')">color
+                         <i class = "glyphicon glyphicon-chevron-down" ng-show = "reverse && value === 'color'"></i>
+                         <i class = "glyphicon glyphicon-chevron-up" ng-show= "!reverse && value === 'color'"></i>
+                </h4>
+            </div>
+            <!--header-->
+            <div class="row" ng-repeat="item in cities | dateFilter:dt1:dt2 |orderBy:value:reverse">
+                <p class="col-xs-2 date-wrap">{{item.city}}</p>
+                <p class="col-xs-2 date-wrap">{{item.start_date| date:'M/d/yyyy'}}</p>
+               <p class="col-xs-2 date-wrap">{{item.end_date| date:'M/d/yyyy'}}</p>
+                <p class="col-xs-2">{{item.price}}</p>
+                <p class="col-xs-2">{{item.status}}</p>
+                <!--<p class = "col-xs-2">{{item.color}}</p>-->
+                <p class="col-xs-2 color-width" ng-style="{'background-color':item.color}"></p>
+            </div>
+            <!--repeat row-->
+        </div>
+        <!--container-->
+    </section>
+    <!--data-chart-->
+    <section id="chart">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-legend="true" chart-series="series" chart-click="onClick">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
