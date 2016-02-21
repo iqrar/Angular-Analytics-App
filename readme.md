@@ -13,7 +13,7 @@ gulp
 # How to use
 
 Use date pickers to filter the object by date range.
-Chart will show the cities and their prices. It depends
+Chart will show the cities and their prices. Table and chart depends
 upon the date filter.
 
 ## Result
